@@ -1,6 +1,8 @@
 FROM mcr.microsoft.com/dotnet/runtime:7.0
 EXPOSE 42420
 
+RUN apt -y update && apt -y install procps
+
 RUN useradd vintagestory -m -s /sbin/nologin
 
 USER vintagestory
