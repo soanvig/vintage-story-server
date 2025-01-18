@@ -1,6 +1,5 @@
 let server_status_exit_code: number = (
-  podman exec vintage-story-server /bin/bash -c 'pgrep dotnet' > /dev/null
-  | complete
+  podman healthcheck run vintage-story-server | complete
 ).exit_code;
 
 let server_status: string = if $server_status_exit_code == 0 { 
